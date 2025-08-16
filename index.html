@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZK Panel 1.0 (UI Only)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <canvas id="overlay"></canvas>
+
+  <!-- Floating icon (hidden until login) -->
+  <div class="fab" id="fab" title="Open ZK Panel" style="display:none">
+    <img src="logo.svg" alt="ZK" />
+  </div>
+
+  <!-- Panel window -->
+  <div class="window" id="panel">
+    <div class="titlebar">
+      <div class="dots"><span class="dot min"></span><span class="dot max"></span><span class="dot close"></span></div>
+      <div class="title">ZK Panel CLT 1.0 — @zkpanel</div>
+      <div class="spacer"></div>
+      <div class="xbtn" id="closePanel">✕</div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-tab="aimbot">🛠️ Aimbot</div>
+      <div class="tab" data-tab="extra">✂️ Extra</div>
+      <div class="tab" data-tab="hs">⚡ HS</div>
+      <div class="tab" data-tab="info">🪪 Info</div>
+    </div>
+    <div class="content">
+      <section class="tabpane" id="aimbot" style="display:block">
+        <div class="row">
+          <span class="label">Enable Aimbot</span>
+          <div class="toggle" data-toggle id="aimToggle"></div>
+        </div>
+        <div class="row">
+          <label class="label">Aim Visível</label>
+          <input type="checkbox" class="check" checked id="aimVisible">
+          <span style="min-width:10px"></span>
+          <label class="label" style="flex:0 0 auto; opacity:.9">Draw FOV</label>
+          <input type="checkbox" class="check" checked id="drawFov">
+        </div>
+        <div class="slider-wrap">
+          <div class="slider-top">
+            <span>Target FOV</span>
+            <span class="value-pill" id="fovValue">360</span>
+          </div>
+          <input id="fov" type="range" min="1" max="360" value="360">
+          <div class="slider-foot"><span>0</span><span>360</span></div>
+        </div>
+
+        <div class="character-box">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong>Character</strong>
+            <div class="hit-options">
+              <div class="badge active" data-hit="head">Head</div>
+              <div class="badge" data-hit="neck">Neck</div>
+              <div class="badge" data-hit="body">Body</div>
+            </div>
+          </div>
+          <canvas id="char" width="420" height="200" style="width:100%;height:auto;margin-top:8px"></canvas>
+        </div>
+      </section>
+
+      <section class="tabpane" id="extra" style="display:none">
+        <div class="row"><span class="label">Stream Mode</span><input type="checkbox" class="check" id="streamMode"></div>
+        <div class="row"><span class="label">Smooth Screen</span><div class="toggle" data-toggle id="smoothScreen"></div></div>
+      </section>
+
+      <section class="tabpane" id="hs" style="display:none">
+        <div class="row"><span class="label">High Performance</span><div class="toggle" data-toggle id="highPerf"></div></div>
+        <div class="row"><span class="label">Unlock 100+ FPS</span><div class="toggle" data-toggle id="unlockFps"></div></div>
+      </section>
+
+      <section class="tabpane" id="info" style="display:none">
+        <div style="color:#aab4be; font-size:14px; line-height:1.6">
+          <strong>ZK Panel</strong> is a themed interface for demos and training tools. This is UI-only; it does not modify any games.
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Center login -->
+  <div class="center-wrap" id="loginWrap">
+    <div class="big-circle"></div>
+    <div class="login">
+      <h3>FFH4X VIP | PROJECT SKETCHWARE V1</h3>
+      <input class="field" placeholder="username" value="souza1" id="user"/>
+      <input class="field" placeholder="••••••••" type="password" id="pass"/>
+      <button class="btn" id="loginBtn">Login</button>
+    </div>
+  </div>
+
+  <script src="background.js"></script>
+  <script src="bridge.js"></script>
+  <script src="overlay.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
